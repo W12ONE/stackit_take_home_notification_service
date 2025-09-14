@@ -13,7 +13,7 @@ fastify.get("/", async function handler(request, reply) {
 });
 
 fastify.post("/", async function handler(request, reply) {
-  return routesRootPost;
+  return routesRootPost();
 });
 
 fastify.get("/health", async function handler(request, reply) {
