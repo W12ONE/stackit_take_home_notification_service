@@ -1,5 +1,5 @@
 export const routesHealthGet = async () => {
-  //replace with timer in state
+  // TODO: place timer in state and use that
   return {
     code: 200,
     header: {

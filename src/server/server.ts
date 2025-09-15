@@ -6,6 +6,8 @@ import {
   type RootPostRequest,
 } from "../routes/root/routes_root_post.js";
 
+// TODO: Some OpenAPI documentation for req, res
+
 const fastify = Fastify({
   logger: true,
 });
@@ -16,6 +18,7 @@ fastify.get("/", async function handler(request, reply) {
 });
 
 fastify.post("/", async function handler(request, reply) {
+  // TODO: Some form of Indempotency Key in Cache / State with short reap interval to prevent duplicate forwarding
   const functionReply = await routesRootPost(request.body as RootPostRequest); // TODO: validate type since Fastify only does JSON by default and use zod for runtime validation. Currently this is kinda iffy with capitalised keys
   return reply
     .code(functionReply.code)

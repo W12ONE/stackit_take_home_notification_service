@@ -23,8 +23,9 @@ export const routesRootPost = async (
   if (request.Type === "Warning") {
     // TODO: Error Handling - try catch or await chain
     const bodyText = `${request.Type}: ${request.Name} \n ${request.Description}`;
+    // TODO: move to Slack specific adapter and just call whichever messenger adapter is desired by the user once more are available
     fetch(
-      "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX", // <- example URL from Slack Docs
+      "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX", // <- example URL from Slack Docs, should be an ENV var in reality
       {
         method: "POST",
         body: JSON.stringify({ text: bodyText }),
